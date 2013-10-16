@@ -17,6 +17,12 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 			<?php get_template_part( 'carousel', 'top') ?>
+			<?php get_template_part( 'deals') ?>
+			<?php get_template_part( 'expiring') ?>
+			<?php get_template_part( 'more-deals') ?>
+			<?php get_template_part( 'more-tips') ?>
+			<?php get_template_part( 'carousel', 'bottom') ?>
+			<?php get_template_part( 'listing') ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
