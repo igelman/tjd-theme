@@ -21,11 +21,11 @@ if ( $query->have_posts() ) {
 		$url = get_post_meta( $id, 'merchant', true ); //"http://localhost/post1";
 		$mainImgSrc = get_the_post_thumbnail($id, 'thumbnail'); //"http://placehold.it/150x150&text=post1-150";
 		$logoImgSrc = "http://placehold.it/150x50&text=post1-50";
-		$caption = "Post 1 caption We the people, in order to form a more perfect union. And yet words on a parchment would not.";
+		$caption = get_the_content(); //"Post 1 caption We the people, in order to form a more perfect union. And yet words on a parchment would not.";
 		
 		$itemDiv = "<div class='carousel-item'>";
 		$itemDiv .= "<div class='carousel-image'>";
-		$itemDiv .= makeAnchor($url, "<img src=$mainImgSrc>");
+		$itemDiv .= makeAnchor($url, $mainImgSrc);
 		$itemDiv .= "</div> <!-- .carousel-image -->";
 		$itemDiv .= "<div class='carousel-logo'>";
 		$itemDiv .= makeAnchor($url, "<img src=$logoImgSrc>");
