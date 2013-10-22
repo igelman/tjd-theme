@@ -1,4 +1,10 @@
 <?php
+
+require_once ( bloginfo('template_directory') . "classes/date-handler-class.php" );
+/*
+* static boolean dateInPeriod($date, $startDate, $endDate)
+*/
+
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 300, 300, false );
 
@@ -12,7 +18,7 @@ set_post_thumbnail_size( 300, 300, false );
 add_filter('mce_buttons_2', 'my_mce_buttons_2');
 
 function getFutureDate($start='today', $interval='1 week') {
-	return date_add($start, date_interval_create_from_date_string($interval));
+	return date_add( date_create($start), date_interval_create_from_date_string($interval) );
 }
 
 function makeAnchor($url, $innerText, $attributeArray=array()) {
@@ -31,12 +37,4 @@ function getPostFields($postId) {
 }
 
 
-class DateFunctions {
-	function dateInPeriod($date, $startDate, $endDate) {
-		if ($date >= $startDate && $date <= $endDate) {
-			return TRUE;
-		}
-		return FALSE;
-	}
-}
 ?>

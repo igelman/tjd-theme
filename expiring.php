@@ -7,29 +7,38 @@
 * http://old.support.advancedcustomfields.com/discussion/5760/listing-events-posts-with-custom-fields
 */
 
-$weekFromNow = getFutureDate('today', '1 week');
+$endDateObj = new DateTime('next month');
+$endDate = $endDateObj->format('Ymd');
+$today = date('Ymd');
 $meta_query_args = array(
+	'relation' => 'AND', // Optional, defaults to "AND"
 	array(
 		'key'     => 'post_expiration',
-		'value'   => getFutureDate('today', '1 week'),
-		'compare' => '='
-	)
+		'value'   => $today, //"20131022",
+		'compare' => '>='
+	),
+	array(
+		'key'     => 'post_expiration',
+		'value'   => $endDate,
+		'compare' => '<='
+	),
 );
-$meta_query = new WP_Meta_Query( $meta_query_args );
 
 $args = array (
 	'post_type'              => 'tmt-deal-posts',
+	'meta_query'	=>	$meta_query_args,
 );
 $query = new WP_Query( $args );
 
 // The Loop
-$content = "";
+$content = "<div>today: $today</div><div>endDate: $endDate</div>";
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
 		
 		$id = get_the_ID();
 		$url = get_post_meta( $id, 'merchant', true );
+		$postExpiration = get_post_meta( $id, 'post_expiration', true );
 		
 		$imgClass = "img-thumbnail img-responsive pull-left";
 		$imgAttr = array(
@@ -42,6 +51,7 @@ if ( $query->have_posts() ) {
 		$itemDiv = "<div class='deal-row row'>";
 		$itemDiv .= makeAnchor($url, $mainImgTag);
 		$itemDiv .= $caption;
+		$itemDiv .= "<div>Post Expiration: " . $postExpiration . "</div>";
 		$itemDiv .= "</div> <!-- .deal-row .row -->";
 		
 		$content .= $itemDiv;
