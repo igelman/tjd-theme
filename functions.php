@@ -1,10 +1,16 @@
 <?php
 
-require_once ( bloginfo('template_directory') . "classes/date-handler-class.php" );
+//require_once ( bloginfo('template_directory') . "classes/date-handler-class.php" );
 /*
 * static boolean dateInPeriod($date, $startDate, $endDate)
 */
 
+$html5Args = array( 
+	'comment-list',
+	'comment-form',
+	'search-form' 
+);
+add_theme_support( 'html5', $html5Args );
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 300, 300, false );
 
