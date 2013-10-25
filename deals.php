@@ -6,6 +6,10 @@
 *  http://www.advancedcustomfields.com/resources/functions/get_field/
 */
 
+$taxonomy = "product_type";
+$before = "<div class='product-types'>";
+$sep = " | ";
+$after = "</div>";
 
 $args = array (
 	'post_type'              => 'tmt-deal-posts',
@@ -32,6 +36,7 @@ if ( $query->have_posts() ) {
 		$itemDiv = "<div class='deal-row row'>";
 		$itemDiv .= makeAnchor($url, $mainImgTag);
 		$itemDiv .= $caption;
+		$itemDiv .= get_the_term_list( $id, $taxonomy, $before, $sep, $after );
 		$itemDiv .= "</div> <!-- .deal-row .row -->";
 		
 		$content .= $itemDiv;
