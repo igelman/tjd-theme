@@ -25,8 +25,8 @@ $meta_query_args = array(
 );
 
 $args = array (
-	'post_type'              => 'tmt-deal-posts',
-	'meta_query'	=>	$meta_query_args,
+	'post_type'		=> 'tmt-deal-posts',
+	'meta_query'	=> $meta_query_args,
 );
 $query = new WP_Query( $args );
 

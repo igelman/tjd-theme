@@ -7,14 +7,24 @@
 */
 
 
+
+$field = 'slug';
+$value = get_query_var( 'term' );
+$taxonomy = get_query_var( 'taxonomy' );
+$terms = get_term_by( $field, $value, $taxonomy );
+
 $args = array (
-	'post_type'              => 'tmt-deal-posts',
-	'category_name'          => 'tiles',
+	'post_type'		=> 'tmt-deal-posts',
+	'category_name'	=> 'tiles',
+	'tax_query'		=> composeTaxonomyQueryArg($terms),
 );
 $query = new WP_Query( $args );
 
 // The Loop
 $content = "";
+$content .= print_r($terms, TRUE);
+$content .= "<p>taxonomy: $taxonomy</p>";
+$content .= "<p>term: $term</p>";
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();

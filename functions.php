@@ -27,6 +27,22 @@ function getFutureDate($start='today', $interval='1 week') {
 	return date_add( date_create($start), date_interval_create_from_date_string($interval) );
 }
 
+function composeTaxonomyQueryArg($terms) {
+	if ($terms) {
+		$term = $terms->slug;
+		$taxonomy = $terms->taxonomy;// 'product_type';
+		return array(
+			'relation'	=> 'AND',
+			array(
+				'taxonomy'	=> $taxonomy,
+				'field'		=> 'slug',
+				'terms'		=>	$terms,
+			),
+		);
+	}
+	return array();
+}
+
 function makeAnchor($url, $innerText, $attributeArray=array()) {
 	$attributes = "";
 	foreach($attributeArray as $attribute => $value) {
