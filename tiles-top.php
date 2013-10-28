@@ -22,9 +22,7 @@ $query = new WP_Query( $args );
 
 // The Loop
 $content = "";
-$content .= print_r($terms, TRUE);
-$content .= "<p>taxonomy: $taxonomy</p>";
-$content .= "<p>term: $term</p>";
+//$content .= print_r($terms, TRUE) . "<p>taxonomy: $taxonomy</p>" . "<p>term: $term</p>";
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
@@ -46,7 +44,7 @@ if ( $query->have_posts() ) {
 		$itemDiv .= "<div class='tile-image'>";
 		$itemDiv .= makeAnchor($url, $mainImgTag);
 		$itemDiv .= "</div> <!-- .tile-image -->";
-		$itemDiv .= "<div class='tile-logo'>";
+		$itemDiv .= "<div class='tile-logo thumbnail'>";
 		$itemDiv .= makeAnchor($url, $logoImgTag);
 		$itemDiv .= "</div> <!-- .tile-logo -->";
 		$itemDiv .= "<div class='tile-caption'>";

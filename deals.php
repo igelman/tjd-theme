@@ -5,7 +5,7 @@
 * Dependency: ACF, especially get_field()
 *  http://www.advancedcustomfields.com/resources/functions/get_field/
 */
-
+//$queried_object = get_queried_object(); print_r( $queried_object );
 $taxonomy = "product_type";
 $before = "<div class='product-types'>";
 $sep = " | ";
@@ -15,7 +15,6 @@ $args = array (
 	'post_type'              => 'tmt-deal-posts',
 );
 $query = new WP_Query( $args );
-
 // The Loop
 $content = "";
 if ( $query->have_posts() ) {

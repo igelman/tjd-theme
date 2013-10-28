@@ -12,4 +12,7 @@ Text Domain:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
+
+Note that most styles are maintained in editor-style-shared.css in order to share styles with tinyMCE editor in wp-admin.
+Therefore, this file contains little or no style rules.
 */

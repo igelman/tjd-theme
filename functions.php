@@ -23,8 +23,29 @@ set_post_thumbnail_size( 300, 300, false );
 // Register our callback to the appropriate filter
 add_filter('mce_buttons_2', 'my_mce_buttons_2');
 
+// Register Navigation Menus
+function custom_navigation_menus() {
+	$locations = array(
+		'main_nav' => __( 'Main Navigation Menu', 'text_domain' ),
+	);
+	register_nav_menus( $locations );
+}
+add_action( 'init', 'custom_navigation_menus' );
+
+// Register widget areas
+$navbarWidgetArgs = array(
+	'name'          => __( 'Navbar Widgets', 'text_domain' ),
+	'id'            => 'navbar-widgets',
+	'description'   => 'Widget aread for main nav',
+        'class'         => 'navbar-widget',
+	'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	'after_widget'  => '</div>',
+	'before_title'  => '',
+	'after_title'   => '' );
+register_sidebar( $navbarWidgetArgs );
+
 function getFutureDate($start='today', $interval='1 week') {
-	return date_add( date_create($start), date_interval_create_from_date_string($interval) );
+	return date_add( date_create($start), date_interval_create_from_date_string( $interval ) );
 }
 
 function composeTaxonomyQueryArg($terms) {
