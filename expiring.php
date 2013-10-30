@@ -33,6 +33,7 @@ $query = new WP_Query( $args );
 // The Loop
 $content = "<div>today: $today</div><div>endDate: $endDate</div>";
 if ( $query->have_posts() ) {
+	$content .= "<ul>";
 	while ( $query->have_posts() ) {
 		$query->the_post();
 		
@@ -48,11 +49,11 @@ if ( $query->have_posts() ) {
 		
 		$caption = get_the_content();
 		
-		$itemDiv = "<div class='deal-row row'>";
-		$itemDiv .= makeAnchor($url, $mainImgTag);
+		$itemDiv = "<li class='deal-row row'>";
+		//$itemDiv .= makeAnchor($url, $mainImgTag);
 		$itemDiv .= $caption;
 		$itemDiv .= "<div>Post Expiration: " . $postExpiration . "</div>";
-		$itemDiv .= "</div> <!-- .deal-row .row -->";
+		$itemDiv .= "</li> <!-- .deal-row .row -->";
 		
 		$content .= $itemDiv;
 	}
