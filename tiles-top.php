@@ -6,23 +6,18 @@
 *  http://www.advancedcustomfields.com/resources/functions/get_field/
 */
 
-
-
-$field = 'slug';
-$value = get_query_var( 'term' );
-$taxonomy = get_query_var( 'taxonomy' );
-$terms = get_term_by( $field, $value, $taxonomy );
-
-$args = array (
-	'post_type'		=> 'tmt-deal-posts',
+$extraArgs = array(
 	'category_name'	=> 'tiles',
-	'tax_query'		=> composeTaxonomyQueryArg($terms),
 );
-$query = new WP_Query( $args );
+$query = createQuery($wp_query, $extraArgs);
 
 // The Loop
 $content = "";
-//$content .= print_r($terms, TRUE) . "<p>taxonomy: $taxonomy</p>" . "<p>term: $term</p>";
+
+// $content .= "taxonomyTerms: <PRE>" . print_r($taxonomyTerms, TRUE) . "</PRE>";
+// $content .= "composeTaxnomyQueryArg: <PRE>" . print_r(composeTaxonomyQueryArg($taxonomyTerms), TRUE) . "</PRE>";
+// $content .= "args: <PRE>" . print_r($args, TRUE) . "</PRE>";
+
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
