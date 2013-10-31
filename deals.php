@@ -11,10 +11,8 @@ $before = "<div class='product-types'>";
 $sep = " | ";
 $after = "</div>";
 
-$args = array (
-	'post_type'              => 'tmt-deal-posts',
-);
-$query = new WP_Query( $args );
+$query = createQuery($wp_query);
+
 // The Loop
 $content = "";
 if ( $query->have_posts() ) {

@@ -14,7 +14,7 @@ $meta_query_args = array(
 	'relation' => 'AND', // Optional, defaults to "AND"
 	array(
 		'key'     => 'post_expiration',
-		'value'   => $today, //"20131022",
+		'value'   => $today,
 		'compare' => '>='
 	),
 	array(
@@ -24,11 +24,10 @@ $meta_query_args = array(
 	),
 );
 
-$args = array (
-	'post_type'		=> 'tmt-deal-posts',
+$extraArgs = array(
 	'meta_query'	=> $meta_query_args,
 );
-$query = new WP_Query( $args );
+$query = createQuery($wp_query, $extraArgs);
 
 // The Loop
 $content = "<div>today: $today</div><div>endDate: $endDate</div>";

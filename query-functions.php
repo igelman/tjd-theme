@@ -1,6 +1,6 @@
 <?php
 
-function createQuery($wp_query, $extraArgs) {
+function createQuery($wp_query, $extraArgs=array()) {
 	$taxonomyTerms = getTaxonomyTerms($wp_query);
 	
 	$args = composeQueryArg($taxonomyTerms, $extraArgs);
@@ -28,7 +28,7 @@ function composeTaxonomyQueryArg($terms) {
 	return array();
 }
 
-function composeQueryArg($taxonomyTerms, $extraArgs) {
+function composeQueryArg($taxonomyTerms, $extraArgs=array()) {
 	return array_merge ( array (
 		'post_type'		=> 'tmt-deal-posts',
 		'tax_query'		=> composeTaxonomyQueryArg($taxonomyTerms),
