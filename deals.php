@@ -30,9 +30,11 @@ if ( $query->have_posts() ) {
 		$mainImgTag = get_the_post_thumbnail($id, 'medium', $imgAttr);
 		
 		$caption = get_the_content();
+		$title = get_the_title();
 		
 		$itemDiv = "<div class='deal-row row'>";
 		$itemDiv .= makeAnchor($url, $mainImgTag);
+		$itemDiv .= "<div class='title'>$title</div>";
 		$itemDiv .= "<div class='caption'>$caption</div>";
 		$itemDiv .= "<div class='merchant'>$merchant</div>";
 		$itemDiv .= get_the_term_list( $id, "product_type", $before, $sep, $after );

@@ -33,6 +33,7 @@ if ( $query->have_posts() ) {
 		
 		$logoImage = get_field('logo_image');
 		$logoImgTag = "<img src=" . $logoImage['url'] . " class='" . $imgClass . "'>";
+		$title = get_the_title();
 		$caption = get_the_content();
 		
 		$itemDiv = "<div class='tile col-md-3'>";
@@ -42,6 +43,9 @@ if ( $query->have_posts() ) {
 		$itemDiv .= "<div class='tile-logo thumbnail'>";
 		$itemDiv .= makeAnchor($url, $logoImgTag);
 		$itemDiv .= "</div> <!-- .tile-logo -->";
+		$itemDiv .= "<div class='tile-title'>";
+		$itemDiv .= $title;
+		$itemDiv .= "</div> <!-- .tile-title -->";
 		$itemDiv .= "<div class='tile-caption'>";
 		$itemDiv .= $caption;
 		$itemDiv .= "</div> <!-- .tile-caption -->";
