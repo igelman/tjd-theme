@@ -34,7 +34,7 @@ if ( $query->have_posts() ) {
 		
 		$itemDiv = "<div class='deal-row row'>";
 		$itemDiv .= makeAnchor($url, $mainImgTag);
-		$itemDiv .= "<div class='title'>$title</div>";
+		$itemDiv .= "<div class='title'>" . makeAnchor($url, $title) . "</div>";
 		$itemDiv .= "<div class='caption'>$caption</div>";
 		$itemDiv .= "<div class='merchant'>$merchant</div>";
 		$itemDiv .= get_the_term_list( $id, "product_type", $before, $sep, $after );
