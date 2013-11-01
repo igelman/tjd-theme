@@ -44,7 +44,7 @@ if ( $query->have_posts() ) {
 		$itemDiv .= makeAnchor($url, $logoImgTag);
 		$itemDiv .= "</div> <!-- .tile-logo -->";
 		$itemDiv .= "<div class='tile-title'>";
-		$itemDiv .= $title;
+		$itemDiv .= makeAnchor($url, $title);
 		$itemDiv .= "</div> <!-- .tile-title -->";
 		$itemDiv .= "<div class='tile-caption'>";
 		$itemDiv .= $caption;
