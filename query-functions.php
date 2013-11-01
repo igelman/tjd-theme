@@ -1,5 +1,4 @@
 <?php
-
 function createQuery($wp_query, $extraArgs=array()) {
 	$taxonomyTerms = getTaxonomyTerms($wp_query);
 	

@@ -1,11 +1,6 @@
 <?php
 require_once ( bloginfo('template_directory') . "query-functions.php" );
 
-//require_once ( bloginfo('template_directory') . "classes/date-handler-class.php" );
-/*
-* static boolean dateInPeriod($date, $startDate, $endDate)
-*/
-
 $html5Args = array( 
 	'comment-list',
 	'comment-form',
