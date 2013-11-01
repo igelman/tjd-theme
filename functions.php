@@ -1,6 +1,4 @@
 <?php
-require_once ( bloginfo('template_directory') . "query-functions.php" );
-
 $html5Args = array( 
 	'comment-list',
 	'comment-form',
@@ -43,10 +41,6 @@ function makeAnchor($url, $innerText, $attributeArray=array()) {
 	return "<a href='$url' $attributes>$innerText</a>";
 }
 
-
-
-
-
 function getPostFields($postId) {
 	$post = get_post( $postId, "OBJECT", "raw" ); // filter should probably sanitize ...
 	$content = $post->content;
@@ -54,5 +48,47 @@ function getPostFields($postId) {
 	$logoImage = get_field('logo_image', $postId);
 }
 
+function createQuery($wp_query, $extraArgs=array()) {
+	$taxonomyTerms = getTaxonomyTerms($wp_query);
+	
+	$args = composeQueryArg($taxonomyTerms, $extraArgs);
+	$query = new WP_Query($args);
+	return $query;
+}
+
+/**
+* Returns value tax_query for WP_Query args.
+* Restricts WP_Query results to selected taxonomy.
+*/
+function composeTaxonomyQueryArg($terms) {
+	if ($terms) {
+		$term = $terms->slug;
+		$taxonomy = $terms->taxonomy;
+		return array(
+			'relation'	=> 'AND',
+			array(
+				'taxonomy'	=> $taxonomy,
+				'field'		=> 'slug',
+				'terms'		=>	$terms,
+			),
+		);
+	}
+	return array();
+}
+
+function composeQueryArg($taxonomyTerms, $extraArgs=array()) {
+	return array_merge ( array (
+		'post_type'		=> 'tmt-deal-posts',
+		'tax_query'		=> composeTaxonomyQueryArg($taxonomyTerms),
+	), $extraArgs );
+}
+
+function getTaxonomyTerms($wp_query) {
+	$field = 'slug';
+	$value = $wp_query->get('term');
+	$taxonomy = $wp_query->get('taxonomy');
+	return get_term_by( $field, $value, $taxonomy );
+
+}
 
 ?>
