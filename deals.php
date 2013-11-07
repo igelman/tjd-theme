@@ -32,10 +32,20 @@ if ( $query->have_posts() ) {
 		$caption = get_the_content();
 		$title = get_the_title();
 		
+		$couponDiv = "";
+		if (get_field("coupon-codes", $id) ) {
+			$couponDiv = "";
+			while ( has_sub_field("coupon_codes") ) {
+				$code = get_sub_field("code");
+				$description = get_sub_field("description");
+				$couponDiv .= "<div class='coupon-code'>$code</div><div class='coupon-description'>$description</div>";
+			}
+		}
+		
 		$itemDiv = "<div class='deal-row row'>";
 		$itemDiv .= makeAnchor($url, $mainImgTag);
 		$itemDiv .= "<div class='title'>" . makeAnchor($url, $title) . "</div>";
-		$itemDiv .= "<div class='caption'>$caption</div>";
+		$itemDiv .= "<div class='caption'>$couponDiv $caption</div>";
 		$itemDiv .= "<div class='merchant'>$merchant</div>";
 		$itemDiv .= get_the_term_list( $id, "product_type", $before, $sep, $after );
 		$itemDiv .= "</div> <!-- .deal-row .row -->";
