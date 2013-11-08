@@ -33,12 +33,13 @@ if ( $query->have_posts() ) {
 		$title = get_the_title();
 		
 		$couponDiv = "";
-		if (get_field("coupon-codes", $id) ) {
+		if (get_field("coupon_codes", $id) ) {
 			$couponDiv = "";
 			while ( has_sub_field("coupon_codes") ) {
 				$code = get_sub_field("code");
 				$description = get_sub_field("description");
-				$couponDiv .= "<div class='coupon-code'>$code</div><div class='coupon-description'>$description</div>";
+				$expirationDate = get_sub_field("expiration_date");
+				$couponDiv .= "<div class='coupon-code'>$code</div><div class='coupon-description'>$description</div><div class='coupon-expiration'>$expirationDate</div>";
 			}
 		}
 		
