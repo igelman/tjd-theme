@@ -16,6 +16,7 @@ $query = createQuery($wp_query);
 // The Loop
 $content = "";
 if ( $query->have_posts() ) {
+	$content .= "<h2 class='todays-tips'>Today's Tips</h2>";
 	while ( $query->have_posts() ) {
 		$query->the_post();
 		

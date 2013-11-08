@@ -30,8 +30,10 @@ $extraArgs = array(
 $query = createQuery($wp_query, $extraArgs);
 
 // The Loop
-$content = "<div>today: $today</div><div>endDate: $endDate</div>";
+$content = "";//"<div>today: $today</div><div>endDate: $endDate</div>";
 if ( $query->have_posts() ) {
+	$content .= "<h2 class='expiring-soon'>More Expiring Soon
+- Today & This Week -</h2>";
 	$content .= "<ul>";
 	while ( $query->have_posts() ) {
 		$query->the_post();
