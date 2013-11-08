@@ -18,8 +18,10 @@ $content = "";
 // $content .= "composeTaxnomyQueryArg: <PRE>" . print_r(composeTaxonomyQueryArg($taxonomyTerms), TRUE) . "</PRE>";
 // $content .= "args: <PRE>" . print_r($args, TRUE) . "</PRE>";
 
+$maxTiles = 4;
+$tilesCount = 0;
 if ( $query->have_posts() ) {
-	while ( $query->have_posts() ) {
+	while ( $query->have_posts() && $tilesCount < $maxTiles) {
 		$query->the_post();
 		
 		$id = get_the_ID();
@@ -52,6 +54,7 @@ if ( $query->have_posts() ) {
 		$itemDiv .= "</div> <!-- .tile -->";
 		
 		$content .= $itemDiv;
+		$tilesCount++;
 	}
 }
 
