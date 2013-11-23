@@ -27,7 +27,7 @@ $meta_query_args = array(
 $extraArgs = array(
 	'meta_query'	=> $meta_query_args,
 );
-$query = createQuery($wp_query, $extraArgs);
+$query = createQuery($wp_query, 'tmt-deal-posts', $extraArgs);
 
 // The Loop
 $content = "";//"<div>today: $today</div><div>endDate: $endDate</div>";

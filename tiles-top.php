@@ -9,7 +9,7 @@
 $extraArgs = array(
 	'category_name'	=> 'tiles',
 );
-$query = createQuery($wp_query, $extraArgs);
+$query = createQuery($wp_query, 'tmt-deal-posts', $extraArgs);
 
 // The Loop
 $content = "";

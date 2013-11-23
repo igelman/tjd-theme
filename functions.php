@@ -48,10 +48,10 @@ function getPostFields($postId) {
 	$logoImage = get_field('logo_image', $postId);
 }
 
-function createQuery($wp_query, $extraArgs=array()) {
+function createQuery($wp_query, $postType, $extraArgs=array()) {
 	$taxonomyTerms = getTaxonomyTerms($wp_query);
 	
-	$args = composeQueryArg($taxonomyTerms, $extraArgs);
+	$args = composeQueryArg($postType, $taxonomyTerms, $extraArgs);
 	$query = new WP_Query($args);
 	return $query;
 }
@@ -76,9 +76,9 @@ function composeTaxonomyQueryArg($terms) {
 	return array();
 }
 
-function composeQueryArg($taxonomyTerms, $extraArgs=array()) {
+function composeQueryArg($postType, $taxonomyTerms, $extraArgs=array()) {
 	return array_merge ( array (
-		'post_type'		=> 'tmt-deal-posts',
+		'post_type'		=> $postType, //'tmt-deal-posts',
 		'tax_query'		=> composeTaxonomyQueryArg($taxonomyTerms),
 	), $extraArgs );
 }
