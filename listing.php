@@ -30,7 +30,13 @@ if ( $query->have_posts() ) {
 	$content .= "</table>";
 }
 
+echo "<h2 class='listing-category'>Category 1</h2>";
 echo $content;
+echo "<h2 class='listing-category'>Category 2</h2>";
+echo $content;
+echo "<h2 class='listing-category'>Category 3</h2>";
+echo $content;
+
 // Restore original Post Data
 wp_reset_postdata();
 
