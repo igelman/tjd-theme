@@ -30,6 +30,8 @@ get_header();
 				<?php get_template_part( 'more-deals') ?>
 				<?php get_template_part( 'more-tips') ?>
 				<?php get_template_part( 'tiles', 'bottom') ?>
+			</div>
+			<div class='row'>
 				<?php get_template_part( 'listing') ?>
 			</div>
 
