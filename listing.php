@@ -10,7 +10,7 @@ $after = "";
 // The Loop
 $content = "";
 if ( $query->have_posts() ) {
-	$content .= "<table id='listings'>";
+	$content .= "<table id='listings' class='table'>";
 	while ( $query->have_posts() ) {
 		$query->the_post();
 		
