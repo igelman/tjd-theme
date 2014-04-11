@@ -7,7 +7,7 @@
 * http://old.support.advancedcustomfields.com/discussion/5760/listing-events-posts-with-custom-fields
 */
 
-$endDateObj = new DateTime('next month');
+$endDateObj = new DateTime('next year');
 $endDate = $endDateObj->format('Ymd');
 $today = date('Ymd');
 $meta_query_args = array(
