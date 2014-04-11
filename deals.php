@@ -28,7 +28,7 @@ if ( $query->have_posts() ) {
 		$imgAttr = array(
 			'class' => $imgClass,
 		);
-		$mainImgTag = "<img src='http://placehold.it/300>";// get_the_post_thumbnail($id, 'medium', $imgAttr);
+		$mainImgTag = "<img src='http://placehold.it/300'>";// get_the_post_thumbnail($id, 'medium', $imgAttr);
 		
 		$caption = get_the_content();
 		$title = get_the_title();

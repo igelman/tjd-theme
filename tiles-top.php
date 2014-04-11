@@ -31,10 +31,12 @@ if ( $query->have_posts() ) {
 		$imgAttr = array(
 			'class' => $imgClass,
 		);
-		$mainImgTag = get_the_post_thumbnail($id, 'thumbnail', $imgAttr);
+		//$mainImgTag = get_the_post_thumbnail($id, 'thumbnail', $imgAttr);
+		$mainImgTag = "<img src='http://placehold.it/300'>";
 		
 		$logoImage = get_field('logo_image');
-		$logoImgTag = "<img src=" . $logoImage['url'] . " class='" . $imgClass . "'>";
+		//$logoImgTag = "<img src=" . $logoImage['url'] . " class='" . $imgClass . "'>";
+		$logoImgTag = "<img src='http://placehold.it/150x50' class='" . $imgClass . "'>";
 		$title = get_the_title();
 		$caption = get_the_content();
 		
