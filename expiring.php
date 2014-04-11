@@ -10,23 +10,23 @@
 $endDateObj = new DateTime('next year');
 $endDate = $endDateObj->format('Ymd');
 $today = date('Ymd');
-$meta_query_args = array(
-	'relation' => 'AND', // Optional, defaults to "AND"
-	array(
-		'key'     => 'post_expiration',
-		'value'   => $today,
-		'compare' => '>='
-	),
-	array(
-		'key'     => 'post_expiration',
-		'value'   => $endDate,
-		'compare' => '<='
-	),
-);
+$meta_query_args = [
+// 	'relation' => 'AND', // Optional, defaults to "AND"
+// 	array(
+// 		'key'     => 'post_expiration',
+// 		'value'   => $today,
+// 		'compare' => '>='
+// 	),
+// 	array(
+// 		'key'     => 'post_expiration',
+// 		'value'   => $endDate,
+// 		'compare' => '<='
+// 	),
+];
 
-$extraArgs = array(
+$extraArgs = [
 	'meta_query'	=> $meta_query_args,
-);
+];
 $query = createQuery($wp_query, 'tmt-deal-posts', $extraArgs);
 
 // The Loop
