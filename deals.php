@@ -22,7 +22,7 @@ if ( $query->have_posts() ) {
 		
 		$id = get_the_ID();
 		$url = get_post_meta( $id, 'url', true );
-		$merchant = get_the_term_list( $id, "merchant", $before, $sep, $after ); //get_post_meta( $id, 'merchant', true );
+		$merchant = "Merchant1";// get_the_term_list( $id, "merchant", $before, $sep, $after ); //get_post_meta( $id, 'merchant', true );
 		
 		$imgClass = "img-thumbnail img-responsive pull-left";
 		$imgAttr = array(
@@ -49,7 +49,7 @@ if ( $query->have_posts() ) {
 		$itemDiv .= "<div class='title'>" . makeAnchor($url, $title) . "</div>";
 		$itemDiv .= "<div class='caption'>$couponDiv $caption</div>";
 		$itemDiv .= "<div class='merchant'>$merchant</div>";
-		$itemDiv .= get_the_term_list( $id, "product_type", $before, $sep, $after );
+		$itemDiv .= "<div class='product-types'> Category1 | Category2</div>";//get_the_term_list( $id, "product_type", $before, $sep, $after );
 		$itemDiv .= "</div> <!-- .deal-row .row -->";
 		
 		$content .= $itemDiv;
