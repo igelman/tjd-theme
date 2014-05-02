@@ -32,14 +32,32 @@ if ( $query->have_posts() ) {
 			'class' => $imgClass,
 		);
 		//$mainImgTag = get_the_post_thumbnail($id, 'thumbnail', $imgAttr);
-		$mainImgTag = "<img src='http://placehold.it/300'>";
+		$mainImgTag = "<img class='main img-responsive' src='http://placehold.it/300'>";
 		
 		$logoImage = get_field('logo_image');
 		//$logoImgTag = "<img src=" . $logoImage['url'] . " class='" . $imgClass . "'>";
-		$logoImgTag = "<img src='http://placehold.it/150x50' class='" . $imgClass . "'>";
+		$logoImgTag = "<img class='logo img-responsive' src='http://placehold.it/150x50'>";
 		$title = get_the_title();
 		$caption = get_the_content();
 		
+
+
+// makeAnchor($url, $innerText, $attributeArray=array())
+		$innerText = $mainImgTag . $logoImage;
+		$imageAnchor = makeAnchor($url, $innerText);
+		$titleAnchor = makeAnchor($url, $title);
+		$listItem = <<<LI
+			<li class='tile'>
+				<figure class='featured'>
+					$imageAnchor
+					<figcaption>
+						$titleAnchor $caption
+					</figcaption>
+				</figure>
+			</li>
+LI;
+		
+/*
 		$itemDiv = "<div class='tile col-md-3'>";
 		$itemDiv .= "<div class='tile-image'>";
 		$itemDiv .= makeAnchor($url, $mainImgTag);
@@ -56,6 +74,8 @@ if ( $query->have_posts() ) {
 		$itemDiv .= "</div> <!-- .tile -->";
 		
 		$content .= $itemDiv;
+*/
+		$content .= $listItem;
 		$tilesCount++;
 	}
 }
