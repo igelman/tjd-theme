@@ -60,7 +60,13 @@ if ( $query->have_posts() ) {
 	}
 }
 
-echo $content;
+$section = <<<SEC
+	<section class='expiring'>
+		$content
+	</section>
+SEC;
+
+echo $section;
 // Restore original Post Data
 wp_reset_postdata();
 
