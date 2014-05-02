@@ -51,7 +51,7 @@ if ( $query->have_posts() ) {
 				<figure class='featured'>
 					$imageAnchor
 					<figcaption>
-						$titleAnchor $caption
+						$titleAnchor $caption $id
 					</figcaption>
 				</figure>
 			</li>

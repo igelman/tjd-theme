@@ -31,28 +31,20 @@ get_template_part( 'navbar' );
 	<section class='jumbotron'>
 		<?php get_template_part( 'tiles', 'top') ?>
 	</section><!-- section.jumbotron -->
-</div>
+	
+	<section class='content-well'>
+		<h1>Latest Deals</h1>
+		<?php get_template_part( 'deals') ?>
+	</section>
+	
+	<section class='listings'>
+		<?php get_template_part( 'listing') ?>
+	</section>
+	
+	<aside class='rail'>
+		<?php get_template_part( 'expiring') ?>
+	</aside>
+</div> <!-- div.content -->
 
-	<div id='primary' class='content-area'>
-		<div id='content' class='site-content' role='main'>
-			<div class='row'>
-				<div class='tile col-md-6'>
-					<?php get_template_part( 'deals') ?>
-				</div>
-				<div class='tile col-md-6'>
-					<?php get_template_part( 'expiring') ?>
-				</div>
-			</div>
-			<div class='row'>
-				<?php get_template_part( 'more-deals') ?>
-				<?php get_template_part( 'more-tips') ?>
-				<?php get_template_part( 'tiles', 'bottom') ?>
-			</div>
-			<div class='row'>
-				<?php get_template_part( 'listing') ?>
-			</div>
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
 
 <?php get_footer(); ?>
