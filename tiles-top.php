@@ -27,7 +27,7 @@ if ( $query->have_posts() ) {
 		$id = get_the_ID();
 		$url = get_post_meta( $id, 'merchant', true );
 		
-		$imgClass = "img-thumbnail img-responsive";
+		$imgClass = "img-responsive";
 		$imgAttr = array(
 			'class' => $imgClass,
 		);

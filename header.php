@@ -42,8 +42,3 @@
 </head>
 
 <body <?php body_class(); ?> >
-
-<?php
-get_template_part( 'navbar' );
-get_template_part( 'jumbotron' );
-?>

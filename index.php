@@ -11,13 +11,30 @@
  * http://kovshenin.com/2013/get_template_part/
  *
  */
+ 
+/**
+ * Insert header.php
+ * (which includes the <head> and opening <body>)
+ * and navbar.php
+ * (which calls a bunch of other files:
+ * -searchform.php
+ * -icontact.php
+ * -menu.php
+ * )
+*/ 
 get_header();
+get_template_part( 'navbar' );
 ?>
+
+
+<div class='content'>
+	<section class='jumbotron'>
+		<?php get_template_part( 'tiles', 'top') ?>
+	</section><!-- section.jumbotron -->
+</div>
+
 	<div id='primary' class='content-area'>
 		<div id='content' class='site-content' role='main'>
-			<div id='tiles-top' class='row'>
-				<?php get_template_part( 'tiles', 'top') ?>
-			</div>
 			<div class='row'>
 				<div class='tile col-md-6'>
 					<?php get_template_part( 'deals') ?>

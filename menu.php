@@ -1,4 +1,7 @@
 <?php
+// Returns menu as ul
+// See http://codex.wordpress.org/Function_Reference/wp_nav_menu
+
 $menuArgs = array(
 	'theme_location'  => 'main_nav', // location in the theme to be used--must be registered with register_nav_menu()
 	'menu'            => '', // menu that is desired; accepts (matching in order) id, slug, name. Default: None
