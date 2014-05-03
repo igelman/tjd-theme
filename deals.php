@@ -49,8 +49,8 @@ if ( $query->have_posts() ) {
 		
 		$imageAnchor = makeAnchor($url, $mainImgTag);
 		$titleAnchor = makeAnchor($url, $title);		
-		$divItem = <<<DI
-			<div class='deal'>
+		$article = <<<ARTICLE
+			<article class='deal'>
 				<figure class='featured'>
 					$imageAnchor
 					<figcaption>
@@ -69,8 +69,8 @@ if ( $query->have_posts() ) {
 				<p class='more'>
 					View more in: <a>link</a>, <a>link</a>, <a>link</a>
 				</p>
-			</div> <!-- div.deal -->
-DI;
+			</article> <!-- article.deal -->
+ARTICLE;
 
 		$content .= $divItem;
 		

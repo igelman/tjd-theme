@@ -2,10 +2,11 @@
 	<div class='header-content'>
 		<img class='logo' src='http://placehold.it/250x50'>
 		<?php
-		// Insert searchform.php 
+		/*******
+		* Insert searchform.php
+		* Insert icontact.php (unless we're using a WordPress widget for the form)
+		********/
 		get_search_form();
-		
-		// Insert icontact.php (unless we're using a WordPress widget for the form)
 		if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Navbar Widgets") ) {
 			get_template_part(icontact);
 		}
