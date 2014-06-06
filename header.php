@@ -26,19 +26,13 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
+    <link href="<?php bloginfo('template_directory') ?>/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<?php wp_head(); ?>
-	<!-- Le styles -->
-	<link href="<?php bloginfo('template_directory') ?>/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
-    <style>
-    	body { padding-top: 70px; };
-	</style>
-   
 </head>
 
 <body <?php body_class(); ?> >
