@@ -72,7 +72,7 @@ if ( $query->have_posts() ) {
 			</article> <!-- article.deal -->
 ARTICLE;
 
-		$content .= $divItem;
+		$content .= $article;
 		
 /*
 		$itemDiv = "<div class='deal-row row'>";
